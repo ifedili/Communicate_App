@@ -156,4 +156,6 @@ def adjust_fields(self, *_):
                        
         Clock.schedule_once(self.history.update_chat_history_layout, 0.01)  
                        
-                       
+ def on_key_down(self, instance, keyboard, keycode, text, modifiers):
+        if keycode == 40:
+            self.send_message(None)                       
