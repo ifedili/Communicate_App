@@ -174,3 +174,14 @@ def send_message(self, _):
             socket_client.send(message, user_key_pair)
             Clock.schedule_once(self.focus_text_input, 0.1)
                        
+def focus_text_input(self, _):
+        self.new_message.focus = True
+
+def incoming_message(self, username, message):
+    if username == '__flag__':
+        self.users_online = eval(message)
+    else:
+         self.history.update_chat_history(
+             f'[color=20dd20]{username}[/color] > {message}'
+            )                     
+                       
