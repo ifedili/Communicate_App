@@ -76,7 +76,8 @@ def join_button(self, instance):
     info = f'Trying to join {ip}:{port} as {username}'
     chat_app.info_page.update_info(info)
     chat_app.screen_manager.current = "Info"
-    Clock.schedule_once(self.connect, 1)                  
+    Clock.schedule_once(self.connect, 1)  
+                       
 def connect(self, _):
     port = int(self.port.text)
     ip = self.ip.text
