@@ -194,5 +194,5 @@ while True:
         # Remove from list for socket.socket()
         sockets_list.remove(notified_socket)
 
-        # Remove from our list of users
+        # Remove from our list of users,
         del clients[notified_socket]
