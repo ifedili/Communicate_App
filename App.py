@@ -105,5 +105,13 @@ class InfoPage(GridLayout):
         self.message.text_size = (self.message.width * 0.9, None)       
                        
                        
+ class ChatPage(GridLayout):
                        
+ def __init__(self, **kwargs):
+     super().__init__(**kwargs)
+     self.cols = 1
+     self.rows = 3
+
+     self.history = ScrollableLabel(height=Window.size[1] * 0.9, size_hint_y=None)
+     self.add_widget(self.history)                      
                        
