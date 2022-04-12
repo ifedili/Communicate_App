@@ -207,4 +207,13 @@ class ChatAppRSA(App):
         self.screen_manager.add_widget(screen)                   
                        
                        
- def show_error(message):                      
+def show_error(message):                      
+    chat_app.info_page.update_info(message)
+    chat_app.screen_manager.current = 'Info'
+    Clock.schedule_once(sys.exit, 10)
+                       
+                       
+ if __name__ == '__main__':
+     private_key = None
+     chat_app = ChatAppRsa()
+     chat_app.run()                  
