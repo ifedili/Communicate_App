@@ -89,3 +89,14 @@ def connect(self, _):
         chat_app.screen_manager.current = 'Chat'
                        
                        
+class InfoPage(GridLayout):
+                       
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.cols = 1
+        self.message = Label(halign='center', valign='middle', font_size=30)
+        self.message.bind(width=self.update_text_width)
+        self.add_widget(self.message)     
+                       
+                       
+                       
