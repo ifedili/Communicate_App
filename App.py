@@ -184,4 +184,18 @@ def incoming_message(self, username, message):
          self.history.update_chat_history(
              f'[color=20dd20]{username}[/color] > {message}'
             )                     
+          
                        
+class ChatAppRSA(App):
+                       
+   def build(self):
+        self.screen_manager = ScreenManager()
+        self.connect_page = ConnectPage()
+        screen = Screen(name='Connect')
+        screen.add_widget(self.connect_page)
+        self.screen_manager.add_widget(screen)
+        self.info_page = InfoPage()
+        screen = Screen(name='Info')
+        screen.add_widget(self.info_page)
+        self.screen_manager.add_widget(screen)
+        return self.screen_manager                    
