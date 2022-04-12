@@ -199,3 +199,12 @@ class ChatAppRSA(App):
         screen.add_widget(self.info_page)
         self.screen_manager.add_widget(screen)
         return self.screen_manager                    
+
+    def create_chat_page(self):
+        self.chat_page = ChatPage()
+        screen = Screen(name='Chat')
+        screen.add_widget(self.chat_page)
+        self.screen_manager.add_widget(screen)                   
+                       
+                       
+                       
