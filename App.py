@@ -156,6 +156,21 @@ def adjust_fields(self, *_):
                        
         Clock.schedule_once(self.history.update_chat_history_layout, 0.01)  
                        
- def on_key_down(self, instance, keyboard, keycode, text, modifiers):
+def on_key_down(self, instance, keyboard, keycode, text, modifiers):
         if keycode == 40:
-            self.send_message(None)                       
+            self.send_message(None)   
+                       
+def send_message(self, _):
+    message = self.new_message.text
+    self.new_message.text = ''
+    if message:
+       self.history.update_chat_history(
+            f'[color=dd2020]{chat_app.connect_page.username.text}[/color] > {message}'
+            )
+            user_key_pair = {
+                'user': self.users_list_btn.text,
+                'key': self.users_online[self.users_list_btn.text]
+            }
+            socket_client.send(message, user_key_pair)
+            Clock.schedule_once(self.focus_text_input, 0.1)
+                       
