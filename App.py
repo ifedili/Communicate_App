@@ -121,3 +121,12 @@ class InfoPage(GridLayout):
         socket_client.start_listening(self.incoming_message, show_error)
 
         time.sleep(2)
+                       
+     self.dropdown = DropDown()
+        for name in self.users_online:
+            btn = Button(text=f'{name}', size_hint_y=None, height=self.send.height)
+            btn.bind(on_release=lambda btn: self.dropdown.select(btn.text))
+            self.dropdown.add_widget(btn)
+     self.users_list_btn = Button(size_hint=(None, None))
+     self.users_list_btn.bind(on_release=self.dropdown.open)
+     self.dropdown.bind(on_select=lambda instance, x: setattr(self.users_list_btn, 'text', x))                  
