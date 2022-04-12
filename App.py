@@ -207,4 +207,4 @@ class ChatAppRSA(App):
         self.screen_manager.add_widget(screen)                   
                        
                        
-                       
+ def show_error(message):                      
