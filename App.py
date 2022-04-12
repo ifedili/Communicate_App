@@ -130,3 +130,30 @@ class InfoPage(GridLayout):
      self.users_list_btn = Button(size_hint=(None, None))
      self.users_list_btn.bind(on_release=self.dropdown.open)
      self.dropdown.bind(on_select=lambda instance, x: setattr(self.users_list_btn, 'text', x))                  
+
+     bottom_line = GridLayout(cols=3)
+     bottom_line.add_widget(self.new_message)
+     bottom_line.add_widget(self.send)
+     bottom_line.add_widget(self.users_list_btn)
+     self.add_widget(bottom_line)     
+        
+     Window.bind(on_key_down=self.on_key_down)
+                       
+     Clock.schedule_once(self.focus_text_input, 1)
+     self.bind(size=self.adjust_fields)   
+                       
+def adjust_fields(self, *_):
+    if Window.size[1] * 0.1 < 50:
+            new_height = Window.size[1] - 50
+        else:
+            new_height = Window.size[1] * 0.9
+        self.history.height = new_height
+        if Window.size[0] * 0.2 < 160:
+            new_width = Window.size[0] - 160
+        else:
+            new_width = Window.size[0] * 0.8
+        self.new_message.width = new_width  
+                       
+        Clock.schedule_once(self.history.update_chat_history_layout, 0.01)  
+                       
+                       
