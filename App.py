@@ -18,5 +18,16 @@ kivy.require('2.0.0')
 import socket_client
 
 class Scrollablel(ScrollView):
-  
+   
+    def __init__(self, **kwargs):
+        super(). __init__(**kwargs)
+        self.layout = Gridlayout(cols=1, size_hint_y=None)
+        self.add_widget(self.layout)
+        self.chat_history = Label(size_hint_y=None, markup=True)
+        self.scroll_to_point = Label()
+        
+        self.layout.add_widget(self.chat_history)
+        self.layout.add_widget(self.scroll_to_point)
+        
+        
   
