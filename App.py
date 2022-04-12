@@ -115,3 +115,9 @@ class InfoPage(GridLayout):
      self.history = ScrollableLabel(height=Window.size[1] * 0.9, size_hint_y=None)
      self.add_widget(self.history)                      
                        
+     self.new_message = TextInput(width=Window.size[0] * 0.8, size_hint_x=None, multiline=False)
+        self.send = Button(text='Send')
+        self.send.bind(on_press=self.send_message)
+        socket_client.start_listening(self.incoming_message, show_error)
+
+        time.sleep(2)
